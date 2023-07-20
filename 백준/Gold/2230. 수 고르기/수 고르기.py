@@ -10,8 +10,8 @@ for i in range(n):
 
 nums.sort()
 
-p1_start = 0
-p2_start = 0
+p1 = 0
+p2 = 0
 ans = float('inf')
 
 
@@ -39,8 +39,8 @@ ans = float('inf')
 #     if nums[p2] - nums[p1] < ans:
 #         ans = nums[p2] - nums[p1]
 
-def solve(p1, p2):
-    global ans
+def solve():
+    global ans, p1, p2
     while p1 < n and p2 < n:
         gap = nums[p2] - nums[p1]
 
@@ -55,7 +55,7 @@ def solve(p1, p2):
             break
 
 if __name__ == '__main__':
-    solve(p1_start, p2_start)
+    solve()
     print(ans)
 
 
