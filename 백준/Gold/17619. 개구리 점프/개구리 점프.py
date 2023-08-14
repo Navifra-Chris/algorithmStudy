@@ -11,8 +11,8 @@ parent = [i for i in range(n+1)]
 def find_parent(x):
     if parent[x] == x:
         return x
-
-    return find_parent(parent[x])
+    parent[x] = find_parent(parent[x])
+    return parent[x]
 
 
 def union(a, b):
@@ -33,7 +33,9 @@ def solve():
 
         if now_start <= next_start <= now_end:
             union(now_idx, next_idx)
-            now_start, now_end, now_idx = next_start, next_end, next_idx
+
+            if next_end >= now_end:
+                now_start, now_end, now_idx = next_start, next_end, next_idx
 
         else:
             now_start, now_end, now_idx = next_start, next_end, next_idx
